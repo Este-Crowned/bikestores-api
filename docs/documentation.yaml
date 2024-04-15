@@ -1,0 +1,521 @@
+openapi: 3.0.3
+info:
+  description: "API for managing brands, categories, employees, products, stocks, and stores."
+  version: "1.0.0"
+  title: "PHP API Documentation"
+servers:
+  - url: https://dev-suzenne221.users.info.unicaen.fr/bikestores
+paths:
+  /stores:
+    get:
+      summary: "Get stores data."
+      responses:
+        200:
+          description: "Success"
+          content:
+            application/json:
+              schema:
+                type: "object"
+        404:
+          description: "Not Found"
+    /{id}:
+      get:
+        summary: "Retrieve store data by ID."
+        parameters:
+          - name: "id"
+            in: "path"
+            description: "ID of the store."
+            required: true
+            schema:
+              type: "integer"
+        responses:
+          200:
+            description: "Success"
+            content:
+              application/json:
+                schema:
+                  type: "object"
+          404:
+            description: "Not Found"
+      post:
+        summary: "Create a new store."
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                type: "object"
+                properties:
+                  name:
+                    type: "string"
+                  phone:
+                    type: "string"
+                  email:
+                    type: "string"
+                  street:
+                    type: "string"
+                  city:
+                    type: "string"
+                  state:
+                    type: "string"
+                  zipcode:
+                    type: "string"
+        responses:
+          201:
+            description: "Created"
+          400:
+            description: "Bad Request"
+      put:
+        summary: "Update an existing store."
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                type: "object"
+                properties:
+                  name:
+                    type: "string"
+                  phone:
+                    type: "string"
+                  email:
+                    type: "string"
+                  street:
+                    type: "string"
+                  city:
+                    type: "string"
+                  state:
+                    type: "string"
+                  zipcode:
+                    type: "string"
+        responses:
+          200:
+            description: "Success"
+          404:
+            description: "Not Found"
+          400:
+            description: "Bad Request"
+      delete:
+        summary: "Delete an existing store."
+        responses:
+          200:
+            description: "Success"
+          404:
+            description: "Not Found"
+          400:
+            description: "Bad Request"
+
+  /brands:
+    get:
+      summary: "Get brands data."
+      responses:
+        200:
+          description: "Success"
+          content:
+            application/json:
+              schema:
+                type: "object"
+        404:
+          description: "Not Found"
+    /{id}:
+      get:
+        summary: "Retrieve brand data by ID."
+        parameters:
+          - name: "id"
+            in: "path"
+            description: "ID of the brand."
+            required: true
+            schema:
+              type: "integer"
+        responses:
+          200:
+            description: "Success"
+            content:
+              application/json:
+                schema:
+                  type: "object"
+          404:
+            description: "Not Found"
+      post:
+        summary: "Create a new brand."
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                type: "object"
+                properties:
+                  name:
+                    type: "string"
+        responses:
+          201:
+            description: "Created"
+          400:
+            description: "Bad Request"
+      put:
+        summary: "Update an existing brand."
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                type: "object"
+                properties:
+                  name:
+                    type: "string"
+        responses:
+          200:
+            description: "Success"
+          404:
+            description: "Not Found"
+          400:
+            description: "Bad Request"
+      delete:
+        summary: "Delete an existing brand."
+        responses:
+          200:
+            description: "Success"
+          404:
+            description: "Not Found"
+          400:
+            description: "Bad Request"
+
+  /categories:
+    get:
+      summary: "Get categories data."
+      responses:
+        200:
+          description: "Success"
+          content:
+            application/json:
+              schema:
+                type: "object"
+        404:
+          description: "Not Found"
+    /{id}:
+      get:
+        summary: "Retrieve category data by ID."
+        parameters:
+          - name: "id"
+            in: "path"
+            description: "ID of the category."
+            required: true
+            schema:
+              type: "integer"
+        responses:
+          200:
+            description: "Success"
+            content:
+              application/json:
+                schema:
+                  type: "object"
+          404:
+            description: "Not Found"
+      post:
+        summary: "Create a new category."
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                type: "object"
+                properties:
+                  name:
+                    type: "string"
+        responses:
+          201:
+            description: "Created"
+          400:
+            description: "Bad Request"
+      put:
+        summary: "Update an existing category."
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                type: "object"
+                properties:
+                  name:
+                    type: "string"
+        responses:
+          200:
+            description: "Success"
+          404:
+            description: "Not Found"
+          400:
+            description: "Bad Request"
+      delete:
+        summary: "Delete an existing category."
+        responses:
+          200:
+            description: "Success"
+          404:
+            description: "Not Found"
+          400:
+            description: "Bad Request"
+
+  /products:
+    get:
+      summary: "Get products data."
+      responses:
+        200:
+          description: "Success"
+          content:
+            application/json:
+              schema:
+                type: "object"
+        404:
+          description: "Not Found"
+    /{id}:
+      get:
+        summary: "Retrieve product data by ID."
+        parameters:
+          - name: "id"
+            in: "path"
+            description: "ID of the product."
+            required: true
+            schema:
+              type: "integer"
+        responses:
+          200:
+            description: "Success"
+            content:
+              application/json:
+                schema:
+                  type: "object"
+          404:
+            description: "Not Found"
+      post:
+        summary: "Create a new product."
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                type: "object"
+                properties:
+                  name:
+                    type: "string"
+                  brand:
+                    type: "integer"
+                  category:
+                    type: "integer"
+                  year:
+                    type: "integer"
+                  price:
+                    type: "number"
+        responses:
+          201:
+            description: "Created"
+          400:
+            description: "Bad Request"
+      put:
+        summary: "Update an existing product."
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                type: "object"
+                properties:
+                  name:
+                    type: "string"
+                  brand:
+                    type: "integer"
+                  category:
+                    type: "integer"
+                  year:
+                    type: "integer"
+                  price:
+                    type: "number"
+        responses:
+          200:
+            description: "Success"
+          404:
+            description: "Not Found"
+          400:
+            description: "Bad Request"
+      delete:
+        summary: "Delete an existing product."
+        responses:
+          200:
+            description: "Success"
+          404:
+            description: "Not Found"
+          400:
+            description: "Bad Request"
+
+  /stocks:
+    get:
+      summary: "Get stocks data."
+      responses:
+        200:
+          description: "Success"
+          content:
+            application/json:
+              schema:
+                type: "object"
+        404:
+          description: "Not Found"
+    /{id}:
+      get:
+        summary: "Retrieve stock data by ID."
+        parameters:
+          - name: "id"
+            in: "path"
+            description: "ID of the stock."
+            required: true
+            schema:
+              type: "integer"
+        responses:
+          200:
+            description: "Success"
+            content:
+              application/json:
+                schema:
+                  type: "object"
+          404:
+            description: "Not Found"
+      post:
+        summary: "Create a new stock."
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                type: "object"
+                properties:
+                  quantity:
+                    type: "integer"
+                  store:
+                    type: "integer"
+                  product:
+                    type: "integer"
+        responses:
+          201:
+            description: "Created"
+          400:
+            description: "Bad Request"
+      put:
+        summary: "Update an existing stock."
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                type: "object"
+                properties:
+                  quantity:
+                    type: "integer"
+                  store:
+                    type: "integer"
+                  product:
+                    type: "integer"
+        responses:
+          200:
+            description: "Success"
+          404:
+            description: "Not Found"
+          400:
+            description: "Bad Request"
+      delete:
+        summary: "Delete an existing stock."
+        responses:
+          200:
+            description: "Success"
+          404:
+            description: "Not Found"
+          400:
+            description: "Bad Request"
+
+  /employees:
+    get:
+      summary: "Get employees data."
+      responses:
+        200:
+          description: "Success"
+          content:
+            application/json:
+              schema:
+                type: "object"
+        404:
+          description: "Not Found"
+    /{id}:
+      get:
+        summary: "Retrieve employee data by ID."
+        parameters:
+          - name: "id"
+            in: "path"
+            description: "ID of the employee."
+            required: true
+            schema:
+              type: "integer"
+        responses:
+          200:
+            description: "Success"
+            content:
+              application/json:
+                schema:
+                  type: "object"
+          404:
+            description: "Not Found"
+      post:
+        summary: "Create a new employee."
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                type: "object"
+                properties:
+                  name:
+                    type: "string"
+                  email:
+                    type: "string"
+                  password:
+                    type: "string"
+                  role:
+                    type: "string"
+                  store:
+                    type: "integer"
+        responses:
+          201:
+            description: "Created"
+          400:
+            description: "Bad Request"
+      put:
+        summary: "Update an existing employee."
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                type: "object"
+                properties:
+                  name:
+                    type: "string"
+                  email:
+                    type: "string"
+                  password:
+                    type: "string"
+                  role:
+                    type: "string"
+                  store:
+                    type: "integer"
+        responses:
+          200:
+            description: "Success"
+          404:
+            description: "Not Found"
+          400:
+            description: "Bad Request"
+      delete:
+        summary: "Delete an existing employee."
+        responses:
+          200:
+            description: "Success"
+          404:
+            description: "Not Found"
+          400:
+            description: "Bad Request"

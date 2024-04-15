@@ -1,0 +1,20 @@
+Allow From All
+Satisfy Any
+
+Options FollowSymLinks
+RewriteEngine On
+RewriteRule ^stores$ scripts/api.php?action=Stores
+RewriteRule ^stores/([^/]+)/?$ scripts/api.php?action=Stores&id=$1
+RewriteRule ^brands$ scripts/api.php?action=Brands
+RewriteRule ^brands/([^/]+)/?$ scripts/api.php?action=Brands&id=$1
+RewriteRule ^categories$ scripts/api.php?action=Categories
+RewriteRule ^categories/([^/]+)/?$ scripts/api.php?action=Categories&id=$1
+RewriteRule ^stocks$ scripts/api.php?action=Stocks
+RewriteRule ^stocks/([^/]+)/?$ scripts/api.php?action=Stocks&id=$1
+RewriteRule ^products$ scripts/api.php?action=Products
+RewriteRule ^products/([^/]+)/?$ scripts/api.php?action=Products&id=$1
+RewriteRule ^employees/([^/]+)/?$ scripts/api.php?action=Employees&key=$1
+RewriteRule ^employees/([^/]+)/([^/]+)/?$ scripts/api.php?action=Employees&key=$1&id=$2
+RewriteRule ^auth/login/([^/]+)/([^/]+)/?$ scripts/api.php?action=Auth&login=$1&password=$2
+RewriteRule ^auth/validate/([^/]+)/([^/]+)/([^/]+)/?$ scripts/api.php?action=AuthCheck&login=$1&password=$2&role=$3
+RewriteRule ^$ docs/doc.html
